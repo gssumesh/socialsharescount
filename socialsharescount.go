@@ -39,7 +39,7 @@ func getShareCount(url string, key string, regex string, result chan map[string]
 }
 
 /*  
-Function GetAll accepts the input URL and returns Share count for URL across social	links : Facebook (Likes, Shares, Comments, Total), LinkedIn, Pinterest, Odnoklassniki, Mail.ru, Vkontakte, Buffer, Stumbleupon 
+GetAll accepts the input URL and returns Share count for URL across social	links : Facebook (Likes, Shares, Comments, Total), LinkedIn, Pinterest, Odnoklassniki, Mail.ru, Vkontakte, Buffer, Stumbleupon 
 */
 func GetAll(url string)map[string]int{
 	resultsChannel := make(chan map[string]int)
