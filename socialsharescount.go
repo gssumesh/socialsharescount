@@ -23,7 +23,7 @@ var socialCount = 11 // 4 Facbook + 7 Others
 
 func getShareCount(url string, key string, regex string, result chan map[string]int){
 	totalShare := 0
-	responseString := callApi(url, "GET")
+	responseString := callAPI(url, "GET")
 	// Get ShareCount
 	re := regexp.MustCompile(regex)
 	if totalShareMatch := re.FindStringSubmatch(responseString); len(totalShareMatch) > 0{
@@ -35,6 +35,13 @@ func getShareCount(url string, key string, regex string, result chan map[string]
 	result <- totalMap
 }
 
+/* 
+	GetAll function accepts the input URL and
+	returns Share count for URL across social
+	links : Facebook (Likes, Shares, Comments,
+	Total), LinkedIn, Pinterest, Odnoklassniki,
+	 Mail.ru, Vkontakte, Buffer, Stumbleupon
+*/
 func GetAll(url string)map[string]int{
 	resultsChannel := make(chan map[string]int)
 	for _, value := range social{
@@ -55,7 +62,7 @@ func GetAll(url string)map[string]int{
 	return resultsMap		
 }
 
-func callApi(url string, verb string)string{
+func callAPI(url string, verb string)string{
 	resp, err := http.Get(url)
 	if err != nil {
 		return "FAILED"
