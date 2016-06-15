@@ -1,3 +1,6 @@
+/*
+Package socialsharescount implements a simple library for getting Social Share Count for given URL across multiple sites.
+*/
 package socialsharescount
 
 import (
@@ -35,11 +38,8 @@ func getShareCount(url string, key string, regex string, result chan map[string]
 	result <- totalMap
 }
 
-/*  GetAll accepts the input URL and
-	returns Share count for URL across social
-	links : Facebook (Likes, Shares, Comments,
-	Total), LinkedIn, Pinterest, Odnoklassniki,
-	 Mail.ru, Vkontakte, Buffer, Stumbleupon
+/*  
+Function GetAll accepts the input URL and returns Share count for URL across social	links : Facebook (Likes, Shares, Comments, Total), LinkedIn, Pinterest, Odnoklassniki, Mail.ru, Vkontakte, Buffer, Stumbleupon 
 */
 func GetAll(url string)map[string]int{
 	resultsChannel := make(chan map[string]int)
