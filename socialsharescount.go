@@ -35,8 +35,7 @@ func getShareCount(url string, key string, regex string, result chan map[string]
 	result <- totalMap
 }
 
-/* 
-	GetAll function accepts the input URL and
+/*  GetAll accepts the input URL and
 	returns Share count for URL across social
 	links : Facebook (Likes, Shares, Comments,
 	Total), LinkedIn, Pinterest, Odnoklassniki,
