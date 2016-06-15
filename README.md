@@ -1,6 +1,6 @@
 # SocialSharesCount
 
-Written in GO lang, this project is a wrapper API on popular social sites and returns share count of a given url. 
+Written in GO lang, this project is a wrapper API on popular social sites and returns share count of a given url. **Star it if you Like it**
 
 ## Installation
 ```
@@ -44,6 +44,10 @@ map[FacebookShare:10780840 Stumbleupon:255527 Mail_ru:609 Vkontakte:373 LinkedIn
 	*Mail.ru*
 	*Vkontakte*
 	*Odnoklassniki*
+
+## To Be Done
+	*Google Plus*
+	*Reddit*
 
 
 ## Built With
