@@ -1,7 +1,6 @@
 package socialsharescount
 
 import (
-	"fmt"
 	"regexp"
 	"net/http"
 	"io/ioutil"
@@ -25,7 +24,6 @@ var socialCount = 11 // 4 Facbook + 7 Others
 func GetShareCount(url string, key string, regex string, result chan map[string]int){
 	totalShare := 0
 	responseString := callApi(url, "GET")
-	fmt.Println("Started API Call: ", key)
 	// Get ShareCount
 	re := regexp.MustCompile(regex)
 	if totalShareMatch := re.FindStringSubmatch(responseString); len(totalShareMatch) > 0{
@@ -37,7 +35,7 @@ func GetShareCount(url string, key string, regex string, result chan map[string]
 	result <- totalMap
 }
 
-func GetAll(url string){
+func GetAll(url string)map[string]int{
 	resultsChannel := make(chan map[string]int)
 	for _, value := range social{
 		if value[0] == "Facebook"{
@@ -54,8 +52,7 @@ func GetAll(url string){
 		    resultsMap[key] = value
 		}
 	}
-
-	fmt.Println(resultsMap)		
+	return resultsMap		
 }
 
 func callApi(url string, verb string)string{
