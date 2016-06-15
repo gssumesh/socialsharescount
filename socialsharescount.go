@@ -21,7 +21,7 @@ var social = [][]string{
 
 var socialCount = 11 // 4 Facbook + 7 Others
 
-func GetShareCount(url string, key string, regex string, result chan map[string]int){
+func getShareCount(url string, key string, regex string, result chan map[string]int){
 	totalShare := 0
 	responseString := callApi(url, "GET")
 	// Get ShareCount
@@ -39,12 +39,12 @@ func GetAll(url string)map[string]int{
 	resultsChannel := make(chan map[string]int)
 	for _, value := range social{
 		if value[0] == "Facebook"{
-			go	GetShareCount(value[1]+url, value[0]+"Share", value[2], resultsChannel)
-			go	GetShareCount(value[1]+url, value[0]+"Like", value[3], resultsChannel)
-			go	GetShareCount(value[1]+url, value[0]+"Comment", value[4], resultsChannel)
-			go	GetShareCount(value[1]+url, value[0]+"Total", value[5], resultsChannel)
+			go	getShareCount(value[1]+url, value[0]+"Share", value[2], resultsChannel)
+			go	getShareCount(value[1]+url, value[0]+"Like", value[3], resultsChannel)
+			go	getShareCount(value[1]+url, value[0]+"Comment", value[4], resultsChannel)
+			go	getShareCount(value[1]+url, value[0]+"Total", value[5], resultsChannel)
 		}else{
-			go	GetShareCount(value[1]+url, value[0], value[2], resultsChannel)
+			go	getShareCount(value[1]+url, value[0], value[2], resultsChannel)
 		}
 	}
 	for i:=0;i<socialCount;i++{
