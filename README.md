@@ -15,13 +15,15 @@ To get started just get the GO package.
 ```go
 package main
 
-import "github.com/gssumesh/socialsharescount"
-
+import ( 
+  "github.com/gssumesh/socialsharescount"
+  "fmt"
+)
 func main() {
   url := "http://www.google.com"
   socialCounts := make(map[string]int) // To Store Result
   
-  socialCounts = socialsharescount.GetAll("http://www.google.com")
+  socialCounts = socialsharescount.GetAll(url)
   fmt.Println(socialCounts)
 }
 
